@@ -56,7 +56,7 @@ module Schedulable
         self.interval||= 1
         self.count||= 0
 
-        time = Date.today.to_time(:utc)
+        time = self.date ? self.date.to_time(:utc) : Date.today.to_time(:utc)
         if self.time.present?
           time = time + self.time.seconds_since_midnight.seconds
         end
